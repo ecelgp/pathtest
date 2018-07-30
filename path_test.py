@@ -14,6 +14,7 @@ class RoutingTable(set):
         self.routes[node][dst_node].append(next_hop)
 
     def delete_route_link(self, node1, node2):
+
         for dst_node in self.routes[node1]:
             try:
                 self.routes[node1][dst_node].remove(node2)
@@ -27,6 +28,7 @@ class RoutingTable(set):
                 continue
 
     def delete_route_node(self, node):
+
         for src_node in self.routes:
             if src_node is node:
                 for dst_node in self.routes[src_node]:
@@ -242,7 +244,6 @@ if __name__ == "__main__":
         compute_count += 1
         for src_node in path:
             # Add first path
-            print src_node + dst_node + path[src_node]
             rt.add_route(src_node, dst_node, path[src_node])
 
             # Add second path
@@ -273,12 +274,10 @@ if __name__ == "__main__":
         total_ok += count_ok
 
     for node in topo.nodes:
-        other_nodes = set(topo.nodes)
-        other_nodes.remove(node)
         rt_temp = copy.deepcopy(rt)
         print "** fail node " + node
         rt_temp.delete_route_node(node)
-        count_drop, count_loop, count_ok = test_paths(rt_temp.routes, other_nodes)
+        count_drop, count_loop, count_ok = test_paths(rt_temp.routes, topo.nodes)
         total_drop += count_drop
         total_loop += count_loop
         total_ok += count_ok
