@@ -14,7 +14,6 @@ class RoutingTable(set):
         self.routes[node][dst_node].append(next_hop)
 
     def delete_route_link(self, node1, node2):
-
         for dst_node in self.routes[node1]:
             try:
                 self.routes[node1][dst_node].remove(node2)
@@ -28,7 +27,6 @@ class RoutingTable(set):
                 continue
 
     def delete_route_node(self, node):
-
         for src_node in self.routes:
             if src_node is node:
                 for dst_node in self.routes[src_node]:
