@@ -131,7 +131,7 @@ def dijsktra(graph, initial):
     Returns:
     - visited: nodes best path cost to initial.
         visited = {src_node:path_cost}
-    - path: nodes best path next_hop to initial
+    - path: nodes best path next_hop to initial.
         path = {src_node:next_hop_node}
 
     """
@@ -181,7 +181,7 @@ def test_path (routes, src_node, dst_node):
     - path: current path sequence.
         path = [node]
 
-"""
+    """
 
     status = "ok"
     last_node = None
@@ -228,7 +228,7 @@ def test_paths (routes, nodes, down_node=None):
     - count_loops: path loops due to fast failover
     - count_ok: path ok count
 
-"""
+    """
 
     count_exp_drop = 0
     count_drop = 0
